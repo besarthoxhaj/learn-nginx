@@ -62,6 +62,10 @@ Syntax: $remote_addr - $remote_user [$time_local] "$request" $status $body_bytes
 
 **Error log**
 
+### npm scripts
+```
+SERVER=proxy npm run restart
+```
 
 
 ### Resources
