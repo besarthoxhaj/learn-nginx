@@ -4,9 +4,11 @@
   "description": "Nginx is a web server written is C.",
   "main": "index.js",
   "scripts": {
-    "start": "mkdir logs && mkdir logs/minimum && touch logs/minimum/access.log",
+    "start": "mkdir logs && cd logs && mkdir minimum proxy && touch minimum/access.log proxy/access.log",
     "clean": "nginx -s stop",
+    "restart": "nginx -s stop && npm run $SERVER",
     "min": "nginx -p \"$(pwd)\" -c configs/minimum.conf && npm run open",
+    "proxy": "nginx -p \"$(pwd)\" -c configs/proxy.conf && npm run open",
     "open": "open -a /Applications/Google\\ Chrome.app http://localhost:8000"
   },
   "author": "Bes & Mac",
