@@ -75,4 +75,5 @@ SERVER=proxy npm run restart
 - [Official doc on logs:](http://nginx.org/en/docs/http/ngx_http_log_module.html)
 - [Log parsing:](https://easyengine.io/tutorials/nginx/log-parsing/)
 - [Official debug log](http://nginx.org/en/docs/debugging_log.html)
+- [Nginx config tutorial](http://openresty.org/download/agentzh-nginx-tutorials-en.html)
 -
