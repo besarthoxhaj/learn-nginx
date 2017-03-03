@@ -4,6 +4,7 @@
   "description": "Nginx is a web server written is C.",
   "main": "index.js",
   "scripts": {
+    "start": "mkdir logs && mkdir logs/minimum && touch logs/minimum/access.log",
     "clean": "nginx -s stop",
     "min": "nginx -p \"$(pwd)\" -c configs/minimum.conf && npm run open",
     "open": "open -a /Applications/Google\\ Chrome.app http://localhost:8000"
