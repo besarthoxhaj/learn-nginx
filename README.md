@@ -11,12 +11,12 @@ $ brew update
 $ brew install nginx
 ```
 
-For source installation check the get started [guide]() and also 
+For source installation check the get started [guide]() and also
 
 ```
 $ cd source/1.10.3/
 $ ./configure
-$ 
+$
 ```
 
 ### Commands
@@ -52,8 +52,23 @@ http {
 }
 ```
 
+### Logs
+There are two main log types: `access_log` and `error_log`
+
+
+**Access log**
+Syntax: $remote_addr - $remote_user [$time_local] "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent"
+
+
+**Error log**
+
+
+
 ### Resources
 
 - [Official wiki:](https://www.nginx.com/resources/wiki/)
 - [Wiki on GitHub:](https://github.com/nginxinc/nginx-wiki)
-- 
+- [Official doc on logs:](http://nginx.org/en/docs/http/ngx_http_log_module.html)
+- [Log parsing:](https://easyengine.io/tutorials/nginx/log-parsing/)
+- [Official debug log](http://nginx.org/en/docs/debugging_log.html)
+-
