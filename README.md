@@ -4,6 +4,8 @@ Nginx is a web server written is C.
 
 ### Install
 
+#### OSX
+
 You can install it via Homebrew or source.
 
 ```
@@ -17,6 +19,15 @@ For source installation check the get started [guide]() and also
 $ cd source/1.10.3/
 $ ./configure
 $
+```
+
+#### Linux
+
+You can install nginx using apt-get
+
+```
+sudo apt-get update
+sudo apt-get install nginx
 ```
 
 ### Commands
@@ -48,9 +59,12 @@ events {
 # it will connect to port 8000 with no static
 # files to server for any path
 http {
-  server {}
+  server {
+    listen 8000;
+  }
 }
 ```
+
 
 ### Logs
 There are two main log types: `access_log` and `error_log`
