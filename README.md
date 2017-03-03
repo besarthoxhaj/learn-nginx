@@ -4,6 +4,8 @@ Nginx is a web server written is C.
 
 ### Install
 
+#### OSX
+
 You can install it via Homebrew or source.
 
 ```
@@ -17,6 +19,15 @@ For source installation check the get started [guide]() and also
 $ cd source/1.10.3/
 $ ./configure
 $
+```
+
+#### Linux
+
+You can install nginx using apt-get
+
+```
+sudo apt-get update
+sudo apt-get install nginx
 ```
 
 ### Commands
@@ -38,23 +49,44 @@ nginx -p "$(pwd)" -c configs/simple.conf
 The bare minimum config possible is:
 
 ```
-# sets the maximum number of simultaneous connections
-# by our experiments the minimum seems 3
+# Sets the maximum number of simultaneous connections
+# by our experiments the minimum seems 3.
 events {
   worker_connections 3;
 }
 
-# this is the bare minimum to run the server
+# This is the bare minimum to run the server
 # it will connect to port 8000 with no static
-# files to server for any path
+# files to server for any path.
+# On Linux it will connect to port 80 instead.
 http {
-  server {}
+  server {
+    # listen 8000;
+  }
+}
+```
+
+### Proxy
+
+In order to create a reverse proxy the minimum configuration is:
+
+```
+events {
+  worker_connections 10;
+}
+
+http {
+  server {
+    location / {
+      proxy_pass http://127.0.0.1:3001$1;
+    }
+  }
 }
 ```
 
 ### Logs
-There are two main log types: `access_log` and `error_log`
 
+There are two main log types: `access_log` and `error_log`
 
 **Access log**
 Syntax: $remote_addr - $remote_user [$time_local] "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent"
@@ -67,7 +99,6 @@ Syntax: $remote_addr - $remote_user [$time_local] "$request" $status $body_bytes
 SERVER=proxy npm run restart
 ```
 
-
 ### Resources
 
 - [Official wiki:](https://www.nginx.com/resources/wiki/)
@@ -75,4 +106,5 @@ SERVER=proxy npm run restart
 - [Official doc on logs:](http://nginx.org/en/docs/http/ngx_http_log_module.html)
 - [Log parsing:](https://easyengine.io/tutorials/nginx/log-parsing/)
 - [Official debug log](http://nginx.org/en/docs/debugging_log.html)
+- [Nginx config tutorial](http://openresty.org/download/agentzh-nginx-tutorials-en.html)
 -
