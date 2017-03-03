@@ -4,6 +4,8 @@ Nginx is a web server written is C.
 
 ### Install
 
+#### OSX
+
 You can install it via Homebrew or source.
 
 ```
@@ -17,6 +19,15 @@ For source installation check the get started [guide]() and also
 $ cd source/1.10.3/
 $ ./configure
 $
+```
+
+#### Linux
+
+You can install nginx using apt-get
+
+```
+sudo apt-get update
+sudo apt-get install nginx
 ```
 
 ### Commands
@@ -38,19 +49,23 @@ nginx -p "$(pwd)" -c configs/simple.conf
 The bare minimum config possible is:
 
 ```
-# sets the maximum number of simultaneous connections
-# by our experiments the minimum seems 3
+# Sets the maximum number of simultaneous connections
+# by our experiments the minimum seems 3.
 events {
   worker_connections 3;
 }
 
-# this is the bare minimum to run the server
+# This is the bare minimum to run the server
 # it will connect to port 8000 with no static
-# files to server for any path
+# files to server for any path.
+# On Linux it will connect to port 80 instead.
 http {
-  server {}
+  server {
+    # listen 8000;
+  }
 }
 ```
+
 
 ### Logs
 There are two main log types: `access_log` and `error_log`
