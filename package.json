@@ -9,6 +9,7 @@
     "restart": "nginx -s stop && npm run $SERVER",
     "min": "nginx -p \"$(pwd)\" -c configs/minimum.conf && npm run open",
     "proxy": "nginx -p \"$(pwd)\" -c configs/proxy.conf && npm run open",
+    "assets": "nginx -p \"$(pwd)\" -c configs/assets.conf && npm run open",
     "open": "open -a /Applications/Google\\ Chrome.app http://localhost:8000"
   },
   "author": "Bes & Mac",
