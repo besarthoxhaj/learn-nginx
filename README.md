@@ -61,6 +61,7 @@ events {
 # On Linux it will connect to port 80 instead.
 http {
   server {
+    # root ./html;
     # listen 8000;
   }
 }
@@ -83,6 +84,20 @@ http {
   }
 }
 ```
+
+### Locations
+
+```
+location /assets/ {
+  root ./; # assets is appended to root
+}
+location /assets/ {
+  alias assets/; # literal directory path
+}
+```
+
+Using alias: With a request of `/i/top.gif`, the file `/data/w3/images/top.gif` will be sent.
+Using root: With a request of `/i/top.gif`, the file `/data/w3/i/top.gif` will be sent.
 
 ### Logs
 
@@ -107,4 +122,5 @@ SERVER=proxy npm run restart
 - [Log parsing:](https://easyengine.io/tutorials/nginx/log-parsing/)
 - [Official debug log](http://nginx.org/en/docs/debugging_log.html)
 - [Nginx config tutorial](http://openresty.org/download/agentzh-nginx-tutorials-en.html)
+- [Realtime metrics + log monitoring](https://github.com/lebinh/ngxtop)
 -
