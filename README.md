@@ -13,6 +13,14 @@ $ brew update
 $ brew install nginx
 ```
 
+To install openresty (for lua and other packages) using homebrew:
+
+```
+$ brew update
+$ brew install homebrew/nginx/openresty
+```
+<!--((TODO: improve npm scripts to auto start/stop if running))-->
+
 For source installation check the get started [guide]() and also
 
 ```
