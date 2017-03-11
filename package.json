@@ -4,7 +4,7 @@
   "description": "Nginx is a web server written is C.",
   "main": "index.js",
   "scripts": {
-    "start": "rm -Rf logs && mkdir logs && cd logs && mkdir minimum proxy && touch minimum/access.log minimum/error.log proxy/access.log proxy/error.log",
+    "start": "bash scripts/init.sh",
     "clean": "nginx -s stop",
     "restart": "nginx -s stop && npm run $SERVER",
     "min": "nginx -p \"$(pwd)\" -c configs/minimum.conf && npm run open",
